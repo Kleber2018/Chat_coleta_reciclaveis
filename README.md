@@ -39,33 +39,33 @@ Desenvolvido com: Java, Thread, Socket
 #	 => Entrar COLETOR (O coletor deve informar o que esta coletando)
 					   
   *Requisitos em comum (Usados tanto para Coletor como para Doador)
-#	  => Sair do Sistema;
-#         => Enviar mensagem de chat (BROADCAST); //chat geral
-#         => Envia mensagem para Doadores/Coletores específicos por MATERIAL (MULTICAST);
-#	  => Solicitar chat (UNICAST); 
-#         => Aceitar solicitação de chat (UNICAST);
-#	  => Rejeitar solicitação do chat (UNICAST);
-#	  => Enviar mensagem chat (UNICAST);
-#         => Encerrar chat (UNICAST); 
+	  => Sair do Sistema;
+         => Enviar mensagem de chat (BROADCAST); //chat geral
+        => Envia mensagem para Doadores/Coletores específicos por MATERIAL (MULTICAST);
+	  => Solicitar chat (UNICAST); 
+         => Aceitar solicitação de chat (UNICAST);
+	  => Rejeitar solicitação do chat (UNICAST);
+	  => Enviar mensagem chat (UNICAST);
+         => Encerrar chat (UNICAST); 
           
  Requisito do Doador/Coletor (Não tem protocolo)
-#         => lado cliente deve armazenar cada mensagem enviada e recebida. (exemplo: tela, terminal(system.out.printline), etc...)
+         => lado cliente deve armazenar cada mensagem enviada e recebida. (exemplo: tela, terminal(system.out.printline), etc...)
 		     
  Servidor ===para====> Doador/Coletor
 
-#         => Encaminhar uma determinada mensagem para o chat geral (BroadCast); //replica a mensagem broadcast
-#         => Encaminhar a mensagem para Doadores/Coletores específicos por MATERIAL, informando a mensagem e o remetente. (MULTICAST)
+         => Encaminhar uma determinada mensagem para o chat geral (BroadCast); //replica a mensagem broadcast
+         => Encaminhar a mensagem para Doadores/Coletores específicos por MATERIAL, informando a mensagem e o remetente. (MULTICAST)
              Obs:. Deve-se enviar somente de acordo com o MATERIAL selecionado no momento do acesso do sistema
-#         => Enviar solicitação do chat (UNICAST) para destinatário (esse destinatário pode ser um coletor ou doador)
-#         => Informar ao remetente(coletor/doador) que o destinátario(coletor/doador) REJEITOU o pedido do chat enviado anteriormente.
-#         => Informar ao remetente(coletor/doador) que o destinátario(coletor/doador) ACEITOU o pedido do chat enviado anteriormente.
-#	  => Encaminhar mensagem para o destinatário (UNICAST);
-#         => Servidor informa Coletor/Doador que o outro encerrou o chat em (UNICAST)
-#         => Enviar para todos os conectados a lista atualizada de doadores e coletores a cada entrada ou saída de um dos Doador/Coletor; 
+        => Enviar solicitação do chat (UNICAST) para destinatário (esse destinatário pode ser um coletor ou doador)
+         => Informar ao remetente(coletor/doador) que o destinátario(coletor/doador) REJEITOU o pedido do chat enviado anteriormente.
+         => Informar ao remetente(coletor/doador) que o destinátario(coletor/doador) ACEITOU o pedido do chat enviado anteriormente.
+	  => Encaminhar mensagem para o destinatário (UNICAST);
+         => Servidor informa Coletor/Doador que o outro encerrou o chat em (UNICAST)
+         => Enviar para todos os conectados a lista atualizada de doadores e coletores a cada entrada ou saída de um dos Doador/Coletor; 
              Obs:. (O filtro por MATERIAL é uma opção da tela do coletor/doador) 
 
   Protocolos para tratamento de erro
-#         => Quando estiver estabelecida uma conexão unicast e o doador/coletor desconectar "bruscamente" ou sair de forma expontanea, o servidor deve informar.
+         => Quando estiver estabelecida uma conexão unicast e o doador/coletor desconectar "bruscamente" ou sair de forma expontanea, o servidor deve informar.
 #         => Informar o cliente que não foi possivel processar a solicitação.
 #         => Em caso de disputa entre dois ou mais coletores/doadores para estabelecer,
 		    "ao mesmo tempo", um chat unicast com coletor/doador específico:
@@ -75,7 +75,7 @@ Desenvolvido com: Java, Thread, Socket
 
           
  Requisito do Servidor (Não tem protocolo)
-#         => ADICIONAR Doador/Coletar em uma lista ( ArrayList / Arquivo .txt ) quando ENTRA no sistema; 
+         => ADICIONAR Doador/Coletar em uma lista ( ArrayList / Arquivo .txt ) quando ENTRA no sistema; 
              Deve estar nessa lista o: 
              IP, 
              porta, 
@@ -85,9 +85,9 @@ Desenvolvido com: Java, Thread, Socket
              ocupado,               // True = (Esta em chat unicast)  // False = (Esta disponível)
              porta_coversa_unicast, // porta efêmera                  // null ou 0
              (para o doador a descrição do que esta doando)
-#         => servidor deve armazenar cada mensagem enviada e recebida. (exemplo: tela, terminal(system.out.printline), etc...)
-#         => (OPCIONAL POR GRUPO) ataque ddos, verificar se um mesmo doador/coletor faz uma grande quantidade de requisições em um curto espaço de tempo.
-#         => REMOVER Doador/Coletar em uma lista ( ArrayList / Arquivo .txt ) quando SAI do sistema;
+         => servidor deve armazenar cada mensagem enviada e recebida. (exemplo: tela, terminal(system.out.printline), etc...)
+         => (OPCIONAL POR GRUPO) ataque ddos, verificar se um mesmo doador/coletor faz uma grande quantidade de requisições em um curto espaço de tempo.
+         => REMOVER Doador/Coletar em uma lista ( ArrayList / Arquivo .txt ) quando SAI do sistema;
 
 ====================================================================================================== 
 //Doador -> SERVIDOR === Entrar no Sistema //
